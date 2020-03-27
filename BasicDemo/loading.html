@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Demo</title>
+</head>
+<body>
+    <div class="div loading"></div> 
+</body>
+</html>
+<style>
+.loading{
+    width:64px;
+    height:64px;
+    background: url(./assets/loading.png) no-repeat;
+    border-radius: 50%;
+    animation: round 1s steps(8) infinite;
+}
+@keyframes round {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+</style>
