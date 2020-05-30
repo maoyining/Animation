@@ -1,0 +1,44 @@
+#sidebar{
+  width:35px;
+  background-color: #e1e1e1;
+  position:fixed;
+  height:100%;
+}
+ul{
+  list-style:none;
+  padding-left:0;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%)
+}
+.item{
+  font-size:12px;
+  text-align: center;
+  margin-top:10px;
+}
+#closeBar{
+  text-align: center;
+  margin-top:10px;
+  font-size:12px;
+  cursor: pointer;
+}
+.nav-content{
+  width:200px;
+  position:fixed;
+  height:100%;
+  background-color: #eee;
+  margin-left:35px;
+  padding:10px;
+  display: none;
+}
+.nav-content div span{
+  position:absolute;
+  right:10px;
+  top:10px;
+  cursor: pointer;
+}
+.right{
+  height:100px;
+  width:100%;
+  background-color:pink
+}
