@@ -11,6 +11,36 @@
       this.menuList = document.querySelectorAll('#sidebar ul > li')
       this.back = document.getElementsByClassName("glyphicon glyphicon-chevron-left")
     }
+    bindEvents(){
+      const list = this.menuList
+      const that = this
+      for(let i = 0;i<list.length;i++){
+        list[i].addEventListener('click',function(e){
+          const content = e.currentTarget.getAttribute('id')+"-content"
+          if(that.state==='allClosed'){   
+            const now = document.getElementById(content)
+            now.style.display="block"
+            that.state = now
+            
+          }else{   
+            that.state.style.display="none"
+            that.state = document.getElementById(content)
+            that.state.style.display="block"
+          }
+          
+        })
+      }
+    }
+    backToLeft(){
+      const backs = this.back
+      const that= this
+      for(let i=0;i<backs.length;i++){
+        backs[i].addEventListener('click',function(){
+          that.state.style.display = "none"
+          that.state="allClosed"
+        })
+      }
+    }
   }
   class SideBar {
     constructor (eId,closeBarId,openBarId){
@@ -28,7 +58,6 @@
       })
     }
     close(){
-      console.log('close')
       if(this.menubar.state !== "allClosed"){
         this.menubar.state.style.display="none"
         this.menubar.state = "allClosed"
@@ -39,7 +68,6 @@
       this.state='closed'
     }
     open(){
-      console.log('open')
       this.openBar.style.display = "none"
       this.element.style.display = "block"
       this.state='opened'
@@ -53,30 +81,7 @@
     }
   }
   
-  const s=new SideBar()
-  const list = s.menubar.menuList
-  const backs = s.menubar.back
-  for(let i = 0;i<list.length;i++){
-    list[i].addEventListener('click',function(e){
-      const content = e.currentTarget.getAttribute('id')+"-content"
-      if(s.menubar.state==='allClosed'){
-        
-        const now = document.getElementById(content)
-        now.style.display="block"
-        s.menubar.state = now
-        
-      }else{   
-        s.menubar.state.style.display="none"
-        s.menubar.state = document.getElementById(content)
-        s.menubar.state.style.display="block"
-      }
-      
-    })
-  }
-  for(let i=0;i<backs.length;i++){
-    backs[i].addEventListener('click',function(){
-      s.menubar.state.style.display = "none"
-      s.menubar.state="allClosed"
-    })
-  }
+  const s=new SideBar() 
+  s.menubar.bindEvents()
+  s.menubar.backToLeft()
 })()
