@@ -9,33 +9,42 @@
         e.stopPropagation()
       })
       this.menuList = document.querySelectorAll('#sidebar ul > li')
+      this.back = document.getElementsByClassName("glyphicon glyphicon-chevron-left")
     }
   }
   class SideBar {
-    constructor (eId,closeBarId){
+    constructor (eId,closeBarId,openBarId){
       this.element = document.getElementById(eId || "sidebar")
       this.closeBar = document.getElementById(closeBarId || "closeBar")
+      this.openBar = document.getElementById(openBarId||"openBar")
       this.state= 'opened'
       this.menubar = new MenuBar()
       let that=this
-      this.element.addEventListener('click',function(e){
-        if(e.target!==that.element){
-          that.triggerSwitch(e.target)
-        }
+      this.closeBar.addEventListener('click',function(e){  
+          that.triggerSwitch()
+      })
+      this.openBar.addEventListener('click',function(e){
+        that.triggerSwitch()
       })
     }
     close(){
       console.log('close')
-      this.element.style.width = 0
+      if(this.menubar.state !== "allClosed"){
+        this.menubar.state.style.display="none"
+        this.menubar.state = "allClosed"
+      }
+      
+      this.openBar.style.display = "block"
+      this.element.style.display = "none"
       this.state='closed'
     }
     open(){
       console.log('open')
-      this.element.style.width = '35px'
+      this.openBar.style.display = "none"
+      this.element.style.display = "block"
       this.state='opened'
     }
-    triggerSwitch(element){
-      console.log(element)
+    triggerSwitch(){
       if(this.state === 'opened'){
         this.close()
       }else{
@@ -46,19 +55,28 @@
   
   const s=new SideBar()
   const list = s.menubar.menuList
+  const backs = s.menubar.back
   for(let i = 0;i<list.length;i++){
     list[i].addEventListener('click',function(e){
       const content = e.currentTarget.getAttribute('id')+"-content"
       if(s.menubar.state==='allClosed'){
-        console.log('打开 ' +content)
-        s.menubar.state = content
         
-      }else{
-        console.log('关闭 '+s.menubar.state)
-        s.menubar.state = content
-        console.log("打开 "+content)
+        const now = document.getElementById(content)
+        now.style.display="block"
+        s.menubar.state = now
+        
+      }else{   
+        s.menubar.state.style.display="none"
+        s.menubar.state = document.getElementById(content)
+        s.menubar.state.style.display="block"
       }
       
+    })
+  }
+  for(let i=0;i<backs.length;i++){
+    backs[i].addEventListener('click',function(){
+      s.menubar.state.style.display = "none"
+      s.menubar.state="allClosed"
     })
   }
 })()

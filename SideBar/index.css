@@ -3,6 +3,7 @@
   background-color: #e1e1e1;
   position:fixed;
   height:100%;
+  
 }
 ul{
   list-style:none;
@@ -22,6 +23,12 @@ ul{
   font-size:12px;
   cursor: pointer;
 }
+#openBar{
+  margin:10px;
+  font-size:12px;
+  cursor: pointer;
+  display:none;
+}
 .nav-content{
   width:200px;
   position:fixed;
@@ -36,9 +43,4 @@ ul{
   right:10px;
   top:10px;
   cursor: pointer;
-}
-.right{
-  height:100px;
-  width:100%;
-  background-color:pink
 }
