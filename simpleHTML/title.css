@@ -1,0 +1,100 @@
+html,body{
+  height:100%;
+  margin:0;
+}
+.header {
+  height:986px;
+  width:100%;
+  background-size:contain;
+  background: url(./assets/images/index_02.png) ;
+  
+  position:relative;
+}
+.top-title{
+  height:59px;
+  line-height: 59px;
+  width:328px;
+  position: absolute;
+  text-align: center;
+  top:205px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.top-title span{
+  color:#ffffffc7;
+  font-size:59px;
+  font-family: "STXihei";
+}
+.top-content{
+  height:95px;
+  line-height: 30px;
+  width:640px;
+  position: absolute;
+  text-align: center;
+  top:338px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.top-content p{
+  color:#ffffffc7;
+  font-size:15px;
+  font-family: "STXihei";
+}
+.light-over{
+  height:986px;
+  width:100%;
+  background:rgba(0, 0, 0, 0.65);
+  float:left;
+}
+.header-login{
+  position:absolute;
+  width:700px;
+  height:257px;
+  top:529px;
+  left:50%;
+  transform: translate(-50%);
+  border:solid #ffffffc7 1px;
+  border-radius:10px;
+  text-align: center;
+}
+
+.login-title{
+  margin-top:57px;
+  color:#ffffffc7;
+  font-size:16px;
+}
+.login-secondtitle{
+  color:#ffffffc7;
+  font-size:12px;
+  margin-top:20px;
+}
+.header-form{
+  width:600px;
+  height:48px;
+  position:absolute;
+  left:50%;
+  top:144px;
+  transform: translateX(-50%);
+}
+.form-input{
+  width:200px;
+  height:40px;
+  margin:0 5px;
+  background: #ffffff00;
+  border:1px solid #ffffffc7;
+  border-radius: 5px;
+  outline: none;
+  color:#ffffffc7;
+  padding:0 5px;
+}
+.form-button{
+  width:80px;
+  height:45px;
+  margin:0 5px;
+  background:#ffffffc7;
+  font-family:"STXihei" ;
+  border-radius: 5px;
+  border:none;
+  outline: none;
+  cursor: pointer;
+}
