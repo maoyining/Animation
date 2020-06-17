@@ -309,7 +309,7 @@
   left:200px;
   border-radius: 10px;
 }
-.form-title{
+.contact-form .form-title{
   font-size:18px;
   font-family: "STXihei";
   font-weight: bold;
@@ -318,7 +318,7 @@
   left:50%;
   transform: translateX(-50%);
 }
-.form-input{
+.contact-form .form-input{
   position: absolute;
   top:70px;
   left:50%;
@@ -327,21 +327,21 @@
   height:300px;
 }
 
-.form-input input{
+.contact-form .form-input input{
   width:320px;
   height:40px; 
   margin-top:30px;
   border:1px solid #e4e6e6;
   border-radius: 5px;
 }
-.form-input textarea{
+.contact-form .form-input textarea{
   width:320px;
   height:140px; 
   margin-top:30px;
   border:1px solid #e4e6e6;
   border-radius: 5px;
 }
-.form-input button{
+.contact-form .form-input button{
   width:320px;
   height:40px; 
   margin-top:30px;

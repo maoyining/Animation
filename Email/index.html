@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>send email</title>
+</head>
+<body>
+  <div class="wrapper">
+    <input id="email-input" oninput ="inputDomListen()" type="text">
+    <ul id="email-sug-wrapper" onclick="chooseValue(event)" class="email-sug"></ul>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+<style>
+*{
+  padding:0;
+  margin:0
+}
+.wrapper{
+  margin:10px
+}
+#email-input{
+  width:200px;
+  height:30px;
+  border:1px solid #eee;
+  outline: none;
+  padding:0 10px;
+}
+.email-sug{
+  list-style: none;
+  margin-left:0;
+  width:260px;
+  text-align: center;
+}
+.email-sug li{
+  list-style: none;
+  border:1px solid #eee;
+  width:222px;
+  height:30px;
+  text-align: center;
+  margin-top:-1px;
+  cursor: pointer;
+}
+.email-sug li:hover{
+  background: pink;
+ 
+}
+</style>
