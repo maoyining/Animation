@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <input id="email-input" oninput ="inputDomListen()" type="text">
+    <input id="email-input" oninput ="inputDomListen()" onkeydown="OnListenKey(event)" type="text">
     <ul id="email-sug-wrapper" onclick="chooseValue(event)" class="email-sug"></ul>
   </div>
   <script src="index.js"></script>
