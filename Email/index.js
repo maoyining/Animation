@@ -113,7 +113,7 @@ function OnListenKey(event) {
       } else {
           nowSelectTipIndex = list.length-1
       }
-      
+      addToWrapper()
   } 
   if (event && event.keyCode===40) {
       if (nowSelectTipIndex < list.length-1) {
@@ -121,8 +121,9 @@ function OnListenKey(event) {
       } else {
           nowSelectTipIndex = 0
       }
+      addToWrapper()
   }
-  addToWrapper()
+  
   if (event && event.keyCode===13) {
       let nodeList=elWrapper.getElementsByTagName('li')
       elInput.value=nodeList[nowSelectTipIndex].innerText
