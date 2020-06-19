@@ -39,20 +39,33 @@ let tHeader = ['商品','地区','1月','2月','3月','4月','5月','6月','7月
 
 let elSelect = document.getElementById("region-select")
 let elTable = document.getElementById('table-wrapper')
-let defaultValue = elSelect.value
+let defaultValue = {}
+
 function selectDomListen (event) {
-  defaultValue = event.target.value
+  if(event.target.getAttribute('id')==='region-select'){
+    defaultValue.region = event.target.value
+  }else if(event.target.getAttribute('id')==='product-select'){
+    defaultValue.product = event.target.value
+  }
   renderTable()
 }
 
 function getFormData(data) {
   let queryData = sourceData.filter(val=>{
-    return val.region ===data
+    if(data.region && data.product){
+      return val.region === data.region && val.product ===data.product
+    }else if(data.region){
+      return val.region === data.region
+    }else if(data.product){
+      return val.product === data.product
+    }
+    
   })
   return queryData
 }
 
 function createMonthData(item){
+  elTable.innerHTML = ""
   let element = document.createElement('tr')
   let arr = []
   arr.push(document.createElement('td'))
@@ -90,7 +103,41 @@ function renderTable () {
     trBody.appendChild(element)
   })
   table.appendChild(trHead)
-  table.appendChild(trBody)
+  table.appendChild(trBody) 
   elTable.appendChild(table)
 }
+
+// function CreateCheckBox( CheckBox容器, CheckBox选项的参数对象或者数组 ) {
+//   生成全选checkbox的html，给一个自定义属性表示为全选checkbox，比如checkbox-type="all"
+//   遍历参数对象 {
+//       生成各个子选项checkbox的html，给一个自定义属性表示为子选项
+//   }
+//   容器innerHTML = 生成好的html集合
+
+//   给容器做一个事件委托 = function() {
+//       if 是checkbox
+//           读取自定义属性
+//           if 全选
+//               做全选对应的逻辑
+//           else
+//               做子选项对应的逻辑
+//   }
+// }
+
+// // 对象或数组自己根据喜好实现均可
+// 生成一组CheckBox(容器1, [{
+//   value: 1,
+//   text: "XXXX"
+// }, {
+//   value: 2,
+//   text: "YYYY"
+// }]);
+
+// 生成一组CheckBox(容器2, [{
+//   value: 1,
+//   text: "AAAA"
+// }, {
+//   value: 2,
+//   text: "BBBB"
+// }]);
 
