@@ -1,5 +1,6 @@
 let tHeader = ['商品','地区','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
 import getFormData from './data'
+import createPic from './line'
 //完成一行数据的渲染
 function createMonthData(item){
   let element = document.createElement('tr')
@@ -15,6 +16,9 @@ function createMonthData(item){
   });
   arr.forEach(item=>{
     element.appendChild(item)
+  })
+  element.addEventListener('mouseover',function(){
+    createPic(item.sale)
   })
   return element
 }
