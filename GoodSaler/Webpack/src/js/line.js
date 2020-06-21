@@ -3,6 +3,14 @@
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 
+function paintAxis(color){
+  ctx.strokeStyle = color
+  ctx.moveTo(50,50);
+  ctx.lineTo(50,350);
+  ctx.lineTo(650,350);
+  ctx.stroke();
+}
+
 /**
  * 绘制点
  * @param {为描绘点提供的数据} data 
@@ -42,13 +50,14 @@ function paintLine(pos,lineColor){
     }
   })
 }
+function clear(){
+  ctx.beginPath();
+      ctx.clearRect(0,0,700,400);
+  }
 export default function createPic(data){
-  //ctx.clearRect(0,0,700,400); 
+  clear()
   //绘制横纵坐标
-  ctx.moveTo(50,50);
-  ctx.lineTo(50,350);
-  ctx.lineTo(650,350);
-  ctx.stroke();
+  paintAxis('black')
   let max = Math.max.apply(Math,data)
   let piece = 300/max
   //描绘点和线
