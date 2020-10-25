@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 2D 变形</title>
+</head>
+<body>
+  <div class="box box-0"></div>
+  <div class="box box-1"></div>
+  <div class="box box-2"></div>
+  <div class="box box-3"></div>
+  <div class="box box-4"></div>
+  <div class="box box-5"></div>
+</body>
+</html>
+<style>
+  .box{
+    width:100px;
+    height:100px;
+    background: pink;
+    margin:50px;
+    display: inline-block;
+  }
+  .box-1{
+    transform: skewX(30deg);
+  }
+  .box-2{
+    transform: scaleX(0.5);
+  }
+  .box-3{
+    transform: rotate(30deg);
+  }
+  .box-4{
+    transform: translate(10px,20px);
+  }
+  .box-5{
+    transform: skewX(30deg) scaleX(0.5) rotate(30deg) translate(10px,20px);
+  }
+</style>

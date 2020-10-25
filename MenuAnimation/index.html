@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content-center">
+    <div class="title-wrapper">
+      <p>Hello MaoYining</p>
+    </div>
+    <div class="menu-line" id="menu-line"></div>
+    <button class="toggle-button" onclick="handleToogle()">点击切换</button>
+  </div>
+  
+</body>
+</html>
+
+<script>
+  let isLong = true
+  function handleToogle(){
+    const title = document.getElementById('menu-line')
+    if(isLong){
+      title.style.width  = 0
+      isLong = false
+    } else {
+      title.style.width = '180px'
+      isLong = true
+    }
+    
+  }
+</script>
+
+<style>
+.content-center{
+  width:180px;
+  height:200px;
+  margin:0 auto;
+  text-align: center;
+}
+
+.title-wrapper{
+  width:180px;
+}
+
+.menu-line{
+  width:180px;
+  height:2px;
+  background: blue;
+  transition: width 0.5s;
+  margin: 10px auto 0; /*为了保证是从两边向中间收缩以及从中间向两边伸展*/
+}
+
+.toggle-button{
+  width:80px;
+  height:30px;
+  margin-top:20px;
+}
+</style>
+

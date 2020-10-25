@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <button id="loginBtn">弹出弹窗</button>
+</body>
+</html>
+
+<script>
+  let createDivWindow = function(){
+    var div = document.createElement('div')
+    div.innerHTML = 'hello, i am maoyining'
+    div.style.display = 'none'
+    document.body.appendChild(div)
+    return div
+  }
+  var getInstance = function(fn){
+    let instance = null
+    return function(){
+      return instance || (instance = fn.apply(this,arguments))
+    }
+  }
+  let getLoginWindow = getInstance(createDivWindow)
+  document.getElementById('loginBtn').onclick=function(){
+    let loginWindow = getLoginWindow()
+    loginWindow.style.display = 'block'
+  }
+</script>
+<style>
+</style>
