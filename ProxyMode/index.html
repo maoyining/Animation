@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代理模式</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  class Myimage{
+    constructor(){
+      this.imgNode = document.createElement('img')
+      document.body.appendChild(this.imgNode)
+    }
+    setSrc(src){
+      this.imgNode.src = src
+    }
+  }
+  let pic = new Myimage()
+  pic.setSrc('https://iknow-pic.cdn.bcebos.com/f703738da977391291175612f8198618367ae294?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1')
+  
+</script>
