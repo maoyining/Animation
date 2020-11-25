@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卡片翻转</title>
+</head>
+<body>
+  <div id="container">
+    <img src="./front.jpg" class="card front" alt="card">
+    <img src="./back.jpg" class="card back" alt="card">
+  </div>
+</body>
+</html>
+<script>
+  const container = document.getElementById('container')
+  container.addEventListener('click', (event)=>{
+    const img = (document.getElementsByClassName('card'))
+    if(event.target.getAttribute('src') === './back.jpg') {
+      img[0].style.transform  = 'rotateY(0deg)'
+      img[1].style.transform = 'rotateY(180deg)'
+      img[1].style.backfaceVisibility = 'hidden'
+    } else {
+      img[0].style.transform  = 'rotateY(180deg)'
+      img[1].style.transform = 'rotateY(0deg)'
+      img[0].style.backfaceVisibility = 'hidden'
+    }
+  })
+</script>
+<style>
+  #container{
+    position: relative;
+  }
+  #container img{
+    transition: transform 1s;
+    transform-style: preserve-3d
+  }
+  .card {
+    position: absolute;
+    left:0;
+    top:0;
+    
+  }
+  .front {
+    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+  }
+</style>

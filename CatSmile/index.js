@@ -21,6 +21,7 @@ const mouthRight = dom.getElementsByClassName('mouth right')
 const earLeft = dom.getElementsByClassName('ear left')
 const earRight = dom.getElementsByClassName('ear right')
 const faceRed = dom.getElementsByClassName('face-red')
+
 face.addEventListener('mouseover',()=>{
   mouthLeft[0].style.borderRadius = '50%'
   mouthRight[0].style.borderRadius = '50%'
